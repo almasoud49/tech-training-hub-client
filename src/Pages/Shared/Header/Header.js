@@ -8,14 +8,15 @@ import { Link } from 'react-router-dom';
 import LeftSideNav from '../LeftSideNav/LeftSideNav';
 const Header = () => {
 return (
-    <Navbar className='mb-3' collapseOnSelect expand="lg" bg="secondary" variant="dark">
+    <Navbar className='mb-3' collapseOnSelect expand="lg" bg="light" variant="light">
     <Container>
         <Navbar.Brand href="#home"> <FaHubspot></FaHubspot>Tech Training Hub</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
             <Nav.Link><Link to='/'>All Courses</Link></Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link to='/blog'><Link>Blog</Link></Nav.Link>
+            <Nav.Link to='/faq'><Link>FAQ</Link></Nav.Link>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">
