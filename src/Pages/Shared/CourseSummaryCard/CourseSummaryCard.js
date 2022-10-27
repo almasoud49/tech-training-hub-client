@@ -3,10 +3,10 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import Image from 'react-bootstrap/Image'
-import { FaRegBookmark, FaShareAlt } from "react-icons/fa";
+import { FaRegBookmark, FaShareAlt, FaStar,FaEye } from "react-icons/fa";
 
 const CourseSummaryCard = ({course}) => {
-    const{id,instructor, duration, title, details, image_url,course_fee} = course;
+    const{id,instructor, duration, rating , title, details, image_url,course_fee,student_review} = course;
     console.log(course);
     return (
 <Card className="mb-5">
@@ -15,16 +15,16 @@ const CourseSummaryCard = ({course}) => {
             <Image
             roundedCircle
             className='me-2'
-            src={instructor.img}
+            src={instructor?.img}
             style = {{height:'60px'}}
             ></Image>
             <div>
-                <p>{instructor.name}</p>
-                <p>{instructor.published_date}</p>
+                <p className='mb-0'>{instructor?.name}</p>
+                <p>{instructor?.published_date}</p>
             </div>
         </div>
         <div>
-            <FaRegBookmark></FaRegBookmark>
+            <FaRegBookmark className='me-2'></FaRegBookmark>
             <FaShareAlt></FaShareAlt>
         </div>
         </Card.Header>
@@ -41,9 +41,19 @@ const CourseSummaryCard = ({course}) => {
         </Card.Text>
         <Button variant="primary">Go somewhere</Button>
       </Card.Body>
-      <Card.Footer className="text-muted">2 days ago</Card.Footer>
+      <Card.Footer className="d-flex justify-content-between">
+        <div>
+            <FaStar className='text-warning me-2'></FaStar>
+            <span>{rating?.number}</span>
+        </div>
+        <div>
+            <FaEye className='me-2'></FaEye>
+            <span>{student_review}</span>
+        </div>
+        </Card.Footer>
     </Card>
     );
 };
 
 export default CourseSummaryCard;
+
