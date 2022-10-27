@@ -4,20 +4,35 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../../../Context/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const LeftSideNav = () => {
     const [categories, setCategories]=useState([]);
-    const {providerLogin}=useContext(AuthContext);
+    const {googleProviderLogin,githubProviderLogin,setUser}=useContext(AuthContext);
 
-    const googleProvider = new GoogleAuthProvider()
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+
     const handleGoogleSignIn = ()=>{
-        providerLogin(googleProvider)
+        googleProviderLogin(googleProvider)
         .then(result => {
             const user = result.user;
+            setUser(user);
             console.log(user);
         })
         .catch(error => console.error(error))
+    }
+
+    const handleGithubSignIn = ()=>{
+        githubProviderLogin(githubProvider)
+        .then(result =>{
+            const user = result.user;
+            setUser(user);
+            console.log(user);
+        })
+        .catch(error=>{
+            console.error(error)
+        })
     }
 
     useEffect( () => {
@@ -38,7 +53,7 @@ const LeftSideNav = () => {
             <div>
             <ButtonGroup vertical>
             <Button onClick={handleGoogleSignIn} className='mb-2' variant="outline-primary"><FaGoogle></FaGoogle> Login with Google</Button>
-            <Button variant="outline-dark"> <FaGithub></FaGithub> Login with GitHub</Button>
+            <Button onClick={handleGithubSignIn} variant="outline-dark"> <FaGithub></FaGithub> Login with GitHub</Button>
             </ButtonGroup>
             </div>
         </div>
