@@ -51,7 +51,7 @@ return (
                    </>
                     :
                     <>
-                    <Link to='/login'>Login</Link>
+                    <Link className='me-3' to='/login'>Login</Link>
                     <Link to='/register'>Register</Link>
                     </>
                 }
