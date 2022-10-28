@@ -1,12 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const Login = () => {
     const {signIn} = useContext(AuthContext);
+    const [error, setError]=useState('');
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
 
     const handleSubmit = event =>{
@@ -20,9 +23,13 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             form.reset();
-            navigate('/');
+            setError('');
+            navigate(from, {replace: true});
         })
-        .catch(error => console.error(error))
+        .catch(error => {
+            console.error(error)
+            setError(error.message);
+        })
     }
 
 
@@ -42,6 +49,9 @@ const Login = () => {
      <Button variant="primary" type="submit">
     Login
     </Button>
+    <Form.Text className='text-danger'>
+        {error}
+    </Form.Text>
 </Form>
     );
 };

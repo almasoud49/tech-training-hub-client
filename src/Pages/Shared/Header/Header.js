@@ -26,8 +26,8 @@ return (
         <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
             <Nav.Link><Link to='/'>All Courses</Link></Nav.Link>
-            <Nav.Link to='/blog'><Link>Blog</Link></Nav.Link>
-            <Nav.Link to='/faq'><Link>FAQ</Link></Nav.Link>
+            <Nav.Link><Link to='/blog'>Blog</Link></Nav.Link>
+            <Nav.Link><Link to='/faq'>FAQ</Link></Nav.Link>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">
@@ -56,9 +56,6 @@ return (
                     </>
                 }
                 </>
-
-                
-                
                 </Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
             {
