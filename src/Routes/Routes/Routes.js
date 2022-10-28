@@ -7,6 +7,7 @@ import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
 import Blog from "../../Pages/Others/Blog/Blog";
 import FAQ from "../../Pages/Others/FAQ/FAQ";
+import ToggleTheme from "../../Pages/Others/ToggleTheme/ToggleTheme";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
@@ -36,6 +37,10 @@ export const routes = createBrowserRouter([
             {
                 path:'/faq',
                 element:<FAQ></FAQ>
+            },
+            {
+                path:'/toggle',
+                element:<ToggleTheme></ToggleTheme>
             },
             {
                 path:'/login',
