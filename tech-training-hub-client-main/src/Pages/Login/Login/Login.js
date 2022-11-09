@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
-import useTitle from '../../../Hooks/useTitle';
 
 const Login = () => {
     const {signIn} = useContext(AuthContext);
@@ -11,7 +10,6 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
-    useTitle('Login')
 
 
     const handleSubmit = event =>{

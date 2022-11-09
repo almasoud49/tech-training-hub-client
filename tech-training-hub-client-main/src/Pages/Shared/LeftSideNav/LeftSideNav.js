@@ -36,7 +36,7 @@ const LeftSideNav = () => {
     }
 
     useEffect( () => {
-        fetch(' https://tech-training-hub.web.app/course-categories')
+        fetch('http://localhost:5000/course-categories')
         .then(res => res.json())
         .then(data => setCategories(data));
     },[])

@@ -4,14 +4,12 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './Course.css';
-import useTitle from '../../Hooks/useTitle';
 
 
 const ref = React.createRef();
 
 const Course = () => {
     const course = useLoaderData();
-    useTitle('News Details');
     const {title, details, image_url, category_id
     } = course;
     return (

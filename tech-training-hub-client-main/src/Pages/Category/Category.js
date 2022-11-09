@@ -1,16 +1,14 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import useTitle from '../../Hooks/useTitle';
 import CourseSummaryCard from '../Shared/CourseSummaryCard/CourseSummaryCard';
 
-const Home = () => {
-    const allCourse = useLoaderData();
-    useTitle('Home');
+const Category = () => {
+    const courseCategory = useLoaderData();
     return (
         <div>
-            
+
             {
-                allCourse.map(course => <CourseSummaryCard
+                courseCategory.map(course => <CourseSummaryCard
                 key={course.id}
                 course={course}
                 ></CourseSummaryCard>)
@@ -19,4 +17,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Category;
