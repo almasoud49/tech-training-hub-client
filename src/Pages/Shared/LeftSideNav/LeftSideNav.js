@@ -36,7 +36,7 @@ const LeftSideNav = () => {
     }
 
     useEffect( () => {
-        fetch(' https://tech-training-hub.web.app/course-categories')
+        fetch(' https://tech-training-hub-server-almasoud49.vercel.app/course-categories')
         .then(res => res.json())
         .then(data => setCategories(data));
     },[])

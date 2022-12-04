@@ -18,17 +18,17 @@ export const routes = createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>,
-                loader:() => fetch(' https://tech-training-hub.web.app/courses')
+                loader:() => fetch('https://tech-training-hub-server-almasoud49.vercel.app/courses')
             },
             {
                 path:'/category/:id',
                 element:<Category></Category>,
-                loader: ({params}) => fetch(` https://tech-training-hub.web.app/category/${params.id}`)
+                loader: ({params}) => fetch(`https://tech-training-hub-server-almasoud49.vercel.app/category/${params.id}`)
             },
             {
                 path:'/course/:id',
                 element:<PrivateRoute><Course></Course></PrivateRoute>,
-                loader:({params}) =>fetch(` https://tech-training-hub.web.app/course/${params.id}`)
+                loader:({params}) =>fetch(`https://tech-training-hub-server-almasoud49.vercel.app/course/${params.id}`)
             },
             {
                 path:'/blog',
